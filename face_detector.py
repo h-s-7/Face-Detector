@@ -21,7 +21,7 @@ def new_user(name,cam):
 def detector(user_id,cap):
     #checking if the user exists
     df = pd.read_csv('face_detect.csv')
-    existing_users = df.iloc[:0]
+    existing_users = list(df.user_id)
     if user_id in existing_users:
         i = cv2.imread(r"E:\\image_data\\"+user_id+".jpg")
         f = fc.face_locations(i)
@@ -49,7 +49,7 @@ def detector(user_id,cap):
             return return_statement
         else:
             return "no match found"
-            
+
     
             
             
